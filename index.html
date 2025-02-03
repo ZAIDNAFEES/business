@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Name Generator</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            background: #ff9800;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #e68900;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .reviews {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .review {
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Business Name Generator</h1>
+        <p>Generate a unique and professional business name in seconds! Enter your niche below and get started.</p>
+        <input type="text" id="niche" placeholder="Enter your niche...">
+        <button onclick="generateName()">Generate Name</button>
+        <div class="output" id="result"></div>
+    </div>
+    
+    <div class="reviews">
+        <h2>User Reviews</h2>
+        <p class="review">"This generator gave me the perfect name for my startup! Highly recommended." - Alex</p>
+        <p class="review">"Super easy to use and the names are actually unique!" - Sarah</p>
+        <p class="review">"Saved me hours of brainstorming. Great tool!" - Mark</p>
+    </div>
+
+    <script>
+        function generateName() {
+            const niche = document.getElementById('niche').value;
+            if (!niche) {
+                alert("Please enter a niche!");
+                return;
+            }
+            
+            const words = ["Solutions", "Hub", "Innovations", "Concepts", "Designs", "Studios", "Pro", "Elite", "Group", "World"];
+            const randomWord = words[Math.floor(Math.random() * words.length)];
+            const randomNumber = Math.floor(Math.random() * 1000);
+            const businessName = `${niche.charAt(0).toUpperCase() + niche.slice(1)} ${randomWord} ${randomNumber}`;
+            
+            document.getElementById('result').innerText = "Suggested Name: " + businessName;
+        }
+    </script>
+</body>
+</html>
